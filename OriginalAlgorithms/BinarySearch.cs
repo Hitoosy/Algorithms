@@ -46,3 +46,5 @@ public static class Program
 //min :　探索範囲の最初のインデックス
 //max :  探索範囲の最後のインデックス
 
+
+//間違ったemailを設定していた
