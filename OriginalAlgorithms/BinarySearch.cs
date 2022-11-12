@@ -48,3 +48,4 @@ public static class Program
 
 
 //間違ったemailを設定していた
+//何でコントリビューション反映されないねん
