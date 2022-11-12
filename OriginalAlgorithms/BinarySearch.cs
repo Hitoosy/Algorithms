@@ -7,7 +7,7 @@ public static class Program
     {
         var target = int.Parse(Console.ReadLine());
 
-        int[] array = Enumerable.Range(1,10).Select(t => 2 * t - 1).ToArray();
+        int[] array = Enumerable.Range(1,10) .Select(t => 2 * t - 1).ToArray();
 
         //二分探索
         var index = BinarySearch<int>(array, target, 0, array.Length - 1);
@@ -16,7 +16,8 @@ public static class Program
         else Console.WriteLine("Not Found");
     }
 
-
+    //今後このコード使える IComparableは比較を可能にするメソッドを提供するインターフェースである(CompareTo メソッドを所持する)
+    //インターフェースとは
     public static  int  BinarySearch<T>(T[] array, T target, int min, int max) where T : IComparable<T>
     {
        if(max < min) return -1;
@@ -24,9 +25,15 @@ public static class Program
        int mid = min + (max - min)/2;  
 
        //ここの内容が重要
-       if(array[mid].CompareTo(target) > 0) return BinarySearch(array, target, min, mid -1);
+       if(array[mid].CompareTo(target) > 0)
+       {
+          return BinarySearch(array, target, min, mid - 1);
+       }
 
-       else if(array[mid].CompareTo(target) < 0) return BinarySearch(array, target, mid + 1, max);
+       else if(array[mid].CompareTo(target) < 0)
+       {
+          return BinarySearch(array, target, mid + 1, max);
+       }
 
        return mid;
 
